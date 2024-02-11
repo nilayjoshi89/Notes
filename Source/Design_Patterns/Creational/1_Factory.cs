@@ -1,6 +1,5 @@
 ﻿namespace Design_Patterns.CreationalPatterns
 {
-
     public class FactoryDemo : IDemonstratePattern
     {
         public string Name => "Creational.Factory";
