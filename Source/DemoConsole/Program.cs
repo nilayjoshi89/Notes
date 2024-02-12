@@ -14,7 +14,7 @@ internal class Program
 
         var demoSelection = new SelectionPrompt<string>()
                                 .Title("[bold green]Select any item:[/]")
-                                .PageSize(30)
+                                .PageSize(10)
                                 .AddChoices(demos.Select(p => p.Key).ToArray());
 
         IConsoleWriter cw = new ConsoleWriter();
