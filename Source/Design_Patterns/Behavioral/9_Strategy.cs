@@ -1,12 +1,14 @@
-﻿namespace Design_Patterns.Behavioral
+﻿using Demo.Common.Library;
+
+namespace Design_Patterns.Behavioral
 {
-    public class StrategyDemo : IDemonstratePattern
+    public class StrategyDemo : DemoBase
     {
-        public string Name => "Behavioral.Strategy";
+        public override string Name => "Behavioral.Strategy";
 
-        public string ShortSummary => "The Strategy design pattern defines a family of algorithms, encapsulate each one, and make them interchangeable. This pattern lets the algorithm vary independently from clients that use it.";
+        public override string ShortSummary => "The Strategy design pattern defines a family of algorithms, encapsulate each one, and make them interchangeable. This pattern lets the algorithm vary independently from clients that use it.";
 
-        public void Run()
+        public override Task Run()
         {
             PaymentProcessor paymentProcessor = new PaymentProcessor();
 
@@ -18,6 +20,8 @@
 
             paymentProcessor.SetPaymentStrategy(new BankTransferPaymentStrategy("123-456-789"));
             paymentProcessor.ProcessPayment(75.00f);
+
+            return Task.CompletedTask;
         }
 
         interface IPaymentStrategy

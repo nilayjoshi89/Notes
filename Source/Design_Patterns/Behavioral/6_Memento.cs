@@ -1,12 +1,14 @@
-﻿namespace Design_Patterns.Behavioral
+﻿using Demo.Common.Library;
+
+namespace Design_Patterns.Behavioral
 {
-    public class MementoDemo : IDemonstratePattern
+    public class MementoDemo : DemoBase
     {
-        public string Name => "Behavioral.Memento";
+        public override string Name => "Behavioral.Memento";
 
-        public string ShortSummary => "allows making snapshots of an object’s state and restoring it in future.";
+        public override string ShortSummary => "allows making snapshots of an object’s state and restoring it in future.";
 
-        public void Run()
+        public override Task Run()
         {
             SalesProspect s = new SalesProspect
             {
@@ -22,6 +24,7 @@
             s.Budget = 1000000.0;
 
             s.RestoreMemento(state);
+            return Task.CompletedTask;
         }
 
         public class SalesProspect

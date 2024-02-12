@@ -1,17 +1,21 @@
 ﻿
+using Demo.Common.Library;
+
 namespace Design_Patterns.StructuralPatterns
 {
-    public class AdapterDemo : IDemonstratePattern
+    public class AdapterDemo : DemoBase
     {
-        public string Name => "Structural.Adapter";
+        public override string Name => "Structural.Adapter";
 
-        public string ShortSummary => @"Adapter is a structural design pattern, which allows incompatible objects to collaborate.
+        public override string ShortSummary => @"Adapter is a structural design pattern, which allows incompatible objects to collaborate.
 Converts the interface of a class into another interface clients expect";
 
-        public void Run()
+        public override Task Run()
         {
             IPrinter printer = new ConsolePrinterAdapter(new ColorConsolePrinter());
             printer.Print($"{Environment.NewLine}Hi, this is printed using adapter.{Environment.NewLine}");
+
+            return Task.CompletedTask;
         }
     }
 

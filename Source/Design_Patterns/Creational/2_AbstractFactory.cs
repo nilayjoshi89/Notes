@@ -1,11 +1,13 @@
-﻿namespace Design_Patterns.CreationalPatterns
-{
-    public class AbstractFactoryDemo : IDemonstratePattern
-    {
-        public string Name => "Creational.AbstractFactory";
-        public string ShortSummary => @"Lets you produce families of related objects without specifying their concrete classes.";
+﻿using Demo.Common.Library;
 
-        public void Run()
+namespace Design_Patterns.CreationalPatterns
+{
+    public class AbstractFactoryDemo : DemoBase
+    {
+        public override string Name => "Creational.AbstractFactory";
+        public override string ShortSummary => @"Lets you produce families of related objects without specifying their concrete classes.";
+
+        public override Task Run()
         {
             Console.WriteLine("Abstract Factory Option 1");
             IAbstractFactory abstractFactory = new AbstractFactory_Option1();
@@ -25,6 +27,8 @@
 
             cp.WritePrimary($"Credit Card Info:{Environment.NewLine}");
             cp.WriteSecondary(cc.ToString());
+
+            return Task.CompletedTask;
         }
     }
 

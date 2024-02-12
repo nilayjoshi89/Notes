@@ -1,12 +1,14 @@
-﻿namespace Design_Patterns.Behavioral
+﻿using Demo.Common.Library;
+
+namespace Design_Patterns.Behavioral
 {
-    public class CommandDemo : IDemonstratePattern
+    public class CommandDemo : DemoBase
     {
-        public string Name => "Behavioral.Command";
+        public override string Name => "Behavioral.Command";
 
-        public string ShortSummary => @"encapsulates a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.";
+        public override string ShortSummary => @"encapsulates a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.";
 
-        public void Run()
+        public override Task Run()
         {
             CalculatorSession calc = new CalculatorSession();
             calc.Compute('+', 100);
@@ -23,6 +25,8 @@
             calc.Compute('+', 5);
 
             calc.Redo(2);
+
+            return Task.CompletedTask;
         }
     }
 

@@ -1,20 +1,23 @@
 ﻿using System.Collections;
 
+using Demo.Common.Library;
+
 namespace Design_Patterns.Behavioral
 {
-    public class IteratorDemo : IDemonstratePattern
+    public class IteratorDemo : DemoBase
     {
-        public string Name => "Behavioral.Iterator";
+        public override string Name => "Behavioral.Iterator";
 
-        public string ShortSummary => @"Sequentially access the elements of a collection";
+        public override string ShortSummary => @"Sequentially access the elements of a collection";
 
-        public void Run()
+        public override Task Run()
         {
             MyCollection collection = new MyCollection();
             foreach (string item in collection)
             {
                 Console.WriteLine(item);
             }
+            return Task.CompletedTask;
         }
     }
 

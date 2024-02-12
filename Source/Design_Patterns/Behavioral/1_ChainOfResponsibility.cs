@@ -1,14 +1,16 @@
 ﻿using System.IO;
 
+using Demo.Common.Library;
+
 namespace Design_Patterns.Behavioral
 {
-    public class ChainOfResponsibilityDemo : IDemonstratePattern
+    public class ChainOfResponsibilityDemo : DemoBase
     {
-        public string Name => "Behavioral.ChainOfResponsibility";
+        public override string Name => "Behavioral.ChainOfResponsibility";
 
-        public string ShortSummary => @"lets you pass requests along a chain of handlers. Upon receiving a request, each handler decides either to process the request or to pass it to the next handler in the chain.";
+        public override string ShortSummary => @"lets you pass requests along a chain of handlers. Upon receiving a request, each handler decides either to process the request or to pass it to the next handler in the chain.";
 
-        public void Run()
+        public override Task Run()
         {
             Approver larry = new Officer();
             Approver sam = new VicePresident();
@@ -22,6 +24,7 @@ namespace Design_Patterns.Behavioral
             larry.ProcessRequest(p);
             p = new Purchase(2036, 122100.00, "Project Y");
             larry.ProcessRequest(p);
+            return Task.CompletedTask;
         }
     }
 

@@ -1,18 +1,22 @@
 ﻿
+using Demo.Common.Library;
+
 namespace Design_Patterns.StructuralPatterns
 {
-    public class FacadeDemo : IDemonstratePattern
+    public class FacadeDemo : DemoBase
     {
-        public string Name => "Structural.Facade";
+        public override string Name => "Structural.Facade";
 
-        public string ShortSummary => @"A single class that represents an entire subsystem
+        public override string ShortSummary => @"A single class that represents an entire subsystem
     - Simplified interface to complex subsystem
 	- It manages all complexity of calling/collating subsystem";
 
-        public void Run()
+        public override Task Run()
         {
             ComputerFacade computerFacade = new ComputerFacade();
             computerFacade.StartComputer();
+
+            return Task.CompletedTask;
         }
     }
 

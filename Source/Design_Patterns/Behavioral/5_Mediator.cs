@@ -1,12 +1,14 @@
-﻿namespace Design_Patterns.Behavioral
+﻿using Demo.Common.Library;
+
+namespace Design_Patterns.Behavioral
 {
-    public class MediatorDemo : IDemonstratePattern
+    public class MediatorDemo : DemoBase
     {
-        public string Name => "Behavioral.Mediator";
+        public override string Name => "Behavioral.Mediator";
 
-        public string ShortSummary => @"Mediator is a behavioral design pattern that reduces coupling between components of a program by making them communicate indirectly, through a special mediator object.";
+        public override string ShortSummary => @"Mediator is a behavioral design pattern that reduces coupling between components of a program by making them communicate indirectly, through a special mediator object.";
 
-        public void Run()
+        public override Task Run()
         {
             Chatroom chatroom = new Chatroom();
             Participant George = new Beatle("George");
@@ -26,6 +28,7 @@
             Ringo.Send("George", "My sweet Lord");
             Paul.Send("John", "Can't buy me love");
             John.Send("Yoko", "My sweet love");
+            return Task.CompletedTask;
         }
 
         public abstract class AbstractChatroom

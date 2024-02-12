@@ -1,15 +1,17 @@
 ﻿
+using Demo.Common.Library;
+
 namespace Design_Patterns.StructuralPatterns
 {
-    public class DecoratorDemo : IDemonstratePattern
+    public class DecoratorDemo : DemoBase
     {
-        public string Name => "Structural.Decorator";
+        public override string Name => "Structural.Decorator";
 
-        public string ShortSummary => @"adding new behaviors to objects dynamically by placing them inside special wrapper objects, called decorators.
+        public override string ShortSummary => @"adding new behaviors to objects dynamically by placing them inside special wrapper objects, called decorators.
     - attaches additional responsibilities to an object dynamically.
 	- New Abstract class from original; wrapping original abstract implementation with additional code";
 
-        public void Run()
+        public override Task Run()
         {
             ITextFormatter plainTextFormatter = new PlainTextFormatter();
             Console.WriteLine(plainTextFormatter.Format("Hello, Decorator Pattern!"));
@@ -19,6 +21,8 @@ namespace Design_Patterns.StructuralPatterns
 
             ITextFormatter italicTextFormatter = new ItalicTextDecorator(boldTextFormatter);
             Console.WriteLine(italicTextFormatter.Format("Hello, Decorator Pattern!"));
+
+            return Task.CompletedTask;
         }
     }
     interface ITextFormatter

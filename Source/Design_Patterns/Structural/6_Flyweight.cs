@@ -1,15 +1,17 @@
 ﻿
+using Demo.Common.Library;
+
 namespace Design_Patterns.StructuralPatterns
 {
-    public class FlyweightDemo : IDemonstratePattern
+    public class FlyweightDemo : DemoBase
     {
-        public string Name => "Structural.Flyweight";
+        public override string Name => "Structural.Flyweight";
 
-        public string ShortSummary => @"allows programs to support vast quantities of objects by keeping their memory consumption low.
+        public override string ShortSummary => @"allows programs to support vast quantities of objects by keeping their memory consumption low.
     - reduce memory usage by sharing data across similar objects.
 	- Factory creating objects using same supporting class references rather than creating new earch and every time (like logger, printer etc.)";
 
-        public void Run()
+        public override Task Run()
         {
             TextEditor textEditor = new TextEditor();
 
@@ -22,6 +24,8 @@ namespace Design_Patterns.StructuralPatterns
 
             // Displaying the formatted text
             textEditor.DisplayText();
+
+            return Task.CompletedTask;
         }
 
         interface ICharacterFormat

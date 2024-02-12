@@ -1,13 +1,15 @@
 ﻿
+using Demo.Common.Library;
+
 namespace Design_Patterns.StructuralPatterns
 {
-    public class CompositeDemo : IDemonstratePattern
+    public class CompositeDemo : DemoBase
     {
-        public string Name => "Structural.Composite";
+        public override string Name => "Structural.Composite";
 
-        public string ShortSummary => @"composes objects into tree structures to represent part-whole hierarchies. This pattern lets clients treat individual objects and compositions of objects uniformly.";
+        public override string ShortSummary => @"composes objects into tree structures to represent part-whole hierarchies. This pattern lets clients treat individual objects and compositions of objects uniformly.";
 
-        public void Run()
+        public override Task Run()
         {
             Composite root = new Composite("root");
             root.Add(new Leaf("Leaf A"));
@@ -22,6 +24,8 @@ namespace Design_Patterns.StructuralPatterns
             root.Remove(leaf);
 
             root.Display(1);
+
+            return Task.CompletedTask;
         }
     }
     public abstract class Component

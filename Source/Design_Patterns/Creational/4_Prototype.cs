@@ -1,12 +1,14 @@
-﻿namespace Design_Patterns.CreationalPatterns
+﻿using Demo.Common.Library;
+
+namespace Design_Patterns.CreationalPatterns
 {
-    public class PrototypeDemo : IDemonstratePattern
+    public class PrototypeDemo : DemoBase
     {
-        public string Name => "Cretional.Prototype";
+        public override string Name => "Cretional.Prototype";
 
-        public string ShortSummary => "Lets you copy existing objects without making your code dependent on their classes.";
+        public override string ShortSummary => "Lets you copy existing objects without making your code dependent on their classes.";
 
-        public void Run()
+        public override Task Run()
         {
             Person person1 = new Person() { FirstName = "F1", LastName = "L1" };
             Person person2 = new Person() { FirstName = "F2", LastName = "L2", Reference = person1 };
@@ -21,6 +23,8 @@
                 person.Print();
                 Console.WriteLine("#");
             }
+
+            return Task.CompletedTask;
         }
     }
 

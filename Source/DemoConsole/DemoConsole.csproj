@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Design_Patterns\Design_Patterns.csproj" />
+    <ProjectReference Include="..\Threading.Library\Threading.Library.csproj" />
   </ItemGroup>
 
 </Project>

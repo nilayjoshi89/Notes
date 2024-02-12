@@ -1,12 +1,14 @@
-﻿namespace Design_Patterns.Behavioral
+﻿using Demo.Common.Library;
+
+namespace Design_Patterns.Behavioral
 {
-    public class StateDemo : IDemonstratePattern
+    public class StateDemo : DemoBase
     {
-        public string Name => "Behavioral.State";
+        public override string Name => "Behavioral.State";
 
-        public string ShortSummary => "allows an object to change the behavior when its internal state changes.";
+        public override string ShortSummary => "allows an object to change the behavior when its internal state changes.";
 
-        public void Run()
+        public override Task Run()
         {
             Account account = new Account("Jim Johnson");
             
@@ -16,6 +18,8 @@
             account.PayInterest();
             account.Withdraw(2000.00);
             account.Withdraw(1100.00);
+
+            return Task.CompletedTask;
         }
         
         public abstract class State

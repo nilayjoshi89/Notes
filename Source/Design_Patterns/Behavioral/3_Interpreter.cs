@@ -1,18 +1,21 @@
-﻿namespace Design_Patterns.Behavioral
+﻿using Demo.Common.Library;
+
+namespace Design_Patterns.Behavioral
 {
-    public class InterpreterDemo : IDemonstratePattern
+    public class InterpreterDemo : DemoBase
     {
-        public string Name => "Behavioral.Interpreter";
+        public override string Name => "Behavioral.Interpreter";
 
-        public string ShortSummary => @"A way to include language elements in a program.";
+        public override string ShortSummary => @"A way to include language elements in a program.";
 
-        public void Run()
+        public override Task Run()
         {
             AbstractExpression expression = new MultiplyExpression(new AddExpression(new NumberExpression(3), new NumberExpression(2)), new NumberExpression(6));
 
             int result = expression.Interpret();
 
             Console.WriteLine("Result: " + result);
+            return Task.CompletedTask;
         }
     }
 

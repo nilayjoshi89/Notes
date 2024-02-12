@@ -1,12 +1,14 @@
-﻿namespace Design_Patterns.Behavioral
+﻿using Demo.Common.Library;
+
+namespace Design_Patterns.Behavioral
 {
-    public class VisitorDemo : IDemonstratePattern
+    public class VisitorDemo : DemoBase
     {
-        public string Name => "Behavioral.Visitor";
+        public override string Name => "Behavioral.Visitor";
 
-        public string ShortSummary => "adding new behaviors to existing class hierarchy without altering any existing code.";
+        public override string ShortSummary => "adding new behaviors to existing class hierarchy without altering any existing code.";
 
-        public void Run()
+        public override Task Run()
         {
             ShoppingCart cart = new ShoppingCart();
             cart.AddItem(new Book("Book 1", 30.0));
@@ -17,6 +19,7 @@
             double totalCost = cart.CalculateTotalCost(discountCalculator);
 
             Console.WriteLine($"Total cost after discounts: {totalCost:C}");
+            return Task.CompletedTask;
         }
 
         interface IDiscountVisitor

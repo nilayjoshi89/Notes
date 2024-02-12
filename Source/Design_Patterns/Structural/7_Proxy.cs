@@ -1,16 +1,20 @@
 ﻿
+using Demo.Common.Library;
+
 namespace Design_Patterns.StructuralPatterns
 {
-    public class ProxyDemo : IDemonstratePattern
+    public class ProxyDemo : DemoBase
     {
-        public string Name => "Structure.Proxy";
+        public override string Name => "Structure.Proxy";
 
-        public string ShortSummary => "provides an object that acts as a substitute for a real service object used by a client. A proxy receives client requests, does some work (access control, caching, etc.) and then passes the request to a service object.";
+        public override string ShortSummary => "provides an object that acts as a substitute for a real service object used by a client. A proxy receives client requests, does some work (access control, caching, etc.) and then passes the request to a service object.";
 
-        public void Run()
+        public override Task Run()
         {
             IDatabase database = new DatabaseProxy("admin", "password");
             database.QueryData("SELECT * FROM Customers");
+
+            return Task.CompletedTask;
         }
     }
 

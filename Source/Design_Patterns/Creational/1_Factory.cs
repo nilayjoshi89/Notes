@@ -1,12 +1,14 @@
-﻿namespace Design_Patterns.CreationalPatterns
+﻿using Demo.Common.Library;
+
+namespace Design_Patterns.CreationalPatterns
 {
-    public class FactoryDemo : IDemonstratePattern
+    public class FactoryDemo : DemoBase
     {
-        public string Name => "Creational.Factory";
-        public string ShortSummary => @"Provides an interface for creating objects in a superclass,
+        public override string Name => "Creational.Factory";
+        public override string ShortSummary => @"Provides an interface for creating objects in a superclass,
 but allows subclasses to alter the type of objects that will be created.";
 
-        public void Run()
+        public override Task Run()
         {
             Console.WriteLine("Platinum Credit Card:");
             ICreditCardFactory factory = new CreditCardFactory2024();
@@ -17,6 +19,7 @@ but allows subclasses to alter the type of objects that will be created.";
             factory = new CreditCardFactory2023();
             card = factory.Get("MoneyBack");
             Console.WriteLine(card.ToString());
+            return Task.CompletedTask;
         }
     }
 

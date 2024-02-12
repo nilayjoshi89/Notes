@@ -1,12 +1,14 @@
-﻿namespace Design_Patterns.CreationalPatterns
+﻿using Demo.Common.Library;
+
+namespace Design_Patterns.CreationalPatterns
 {
-    public class BuilderDemo : IDemonstratePattern
+    public class BuilderDemo : DemoBase
     {
-        public string Name => "Cretional.Builder";
+        public override string Name => "Cretional.Builder";
 
-        public string ShortSummary => "Lets you construct complex objects step by step. The pattern allows you to produce different types and representations of an object using the same construction code.";
+        public override string ShortSummary => "Lets you construct complex objects step by step. The pattern allows you to produce different types and representations of an object using the same construction code.";
 
-        public void Run()
+        public override Task Run()
         {
             Console.WriteLine("Resume Builder:");
             DocumentDirector director = new DocumentDirector(new ResumeBuilder());
@@ -27,6 +29,8 @@
             doc = director.FullDoc();
             doc.Print();
             Console.WriteLine();
+
+            return Task.CompletedTask;
         }
     }
     internal class DocumentDirector

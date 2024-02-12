@@ -1,12 +1,14 @@
-﻿namespace Design_Patterns.Behavioral
+﻿using Demo.Common.Library;
+
+namespace Design_Patterns.Behavioral
 {
-    public class TemplateDemo : IDemonstratePattern
+    public class TemplateDemo : DemoBase
     {
-        public string Name => "Behavioral.Template";
+        public override string Name => "Behavioral.Template";
 
-        public string ShortSummary => "defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm without changing its structure.";
+        public override string ShortSummary => "defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm without changing its structure.";
 
-        public void Run()
+        public override Task Run()
         {
             Console.WriteLine("Processing PDF document:");
             DocumentProcessor pdfProcessor = new PdfDocumentProcessor();
@@ -15,6 +17,8 @@
             Console.WriteLine("\nProcessing Word document:");
             DocumentProcessor wordProcessor = new WordDocumentProcessor();
             wordProcessor.ProcessDocument();
+
+            return Task.CompletedTask;
         }
 
         abstract class DocumentProcessor
